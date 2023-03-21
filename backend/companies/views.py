@@ -8,4 +8,9 @@ class CompaniesListView(ListView):
     queryset = Company.objects.all()
     template_name= "core/index.html"
 
+    def get_context_data(self) :
+        context = super().get_context_data()
+        context["obj"] = "my name is mamp"
+             
+        return context
 

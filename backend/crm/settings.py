@@ -37,12 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #third party
-    'widget_tweaks',
+
+   
+   'rest_framework',
+   'rest_framework.authtoken',
+   #'django-extensions',
+
 
     #own
     'companies',
-    'core'
+    'core',
+    'apilearn',
+    'Products'
 ]
 
 MIDDLEWARE = [
@@ -117,7 +123,8 @@ USE_I18N = True
 
 USE_TZ = True
 
-
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
@@ -127,3 +134,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 3
+}
